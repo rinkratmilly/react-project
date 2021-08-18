@@ -10,7 +10,7 @@ function Main ({characters, loading}) {
           <div>
             {/* <h1>{characters.docs[0].name}</h1> */}
       
-          </div>ff
+          </div>
         );
     }
 
