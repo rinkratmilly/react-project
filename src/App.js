@@ -2,7 +2,9 @@ import React, {useState, useEffect} from 'react';
 import Header from './components/Header';
 import Main from './components/Main';
 import Aside from './components/Aside';
+import CharacterInfo from './components/CharacterInfo';
 import './App.css';
+import { Route } from 'react-router-dom';
 
 
 function App () {
@@ -23,6 +25,14 @@ function App () {
       // endpoint: '/character/5cd99d4bde30eff6ebccfc42',
       endpoint: '/character',
     };
+
+    // const quoteReturn= {
+    //   key: process.env.REACT_APP_PROJECT_KEY,
+    //   limit: 9,
+    //   api: 'https://the-one-api.dev/v2',
+    //   endpoint: '/quote'
+
+    // }
 
     function getCharacters () {
       const url = `${charReturn.api}${charReturn.endpoint}`;
@@ -46,7 +56,7 @@ function App () {
       <header className="App-header">
 
         <Header />
-
+        
       </header>
 
       <main>
@@ -61,6 +71,13 @@ function App () {
         <Aside />
 
       </aside>
+
+      <Route exact path = '/book/:id' 
+      render={(routerProps) => (
+        <CharacterInfo match={routerProps.match}/>
+        )}
+        />
+       
     </div>
   );
 }
