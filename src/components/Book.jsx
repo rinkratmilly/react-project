@@ -35,25 +35,48 @@ const Book = () => {
     getBook ();
   }, []);
 
+  // console.log(books.docs)
+
+  // if (loading) {
+  //   return <h1>Fly, you fools!</h1>;
+  // } else {
+  //   return (
+  //     <div>
+  //       {books.docs.map (book => {
+  //           // console.log(book)
+  //         return (
+  //           <div>
+  //           <Link to={`/book/${book._id}/chapter`} key={book.name}>
+  //             <li>{book.name}</li>
+  //           </Link> 
+            
+  //             <Route exact path={`/book/${book._id}/chapter`}
+  //             render={(routerProps) => <Chapters book = {book} setBooks= {setBooks} match = {routerProps.match}
+  //             bookId = {book._id}/>}
+  //             />
+             
+  //             </div> 
+  //         );
+  //       })}
+
+  //     </div>
+  //   );
+  // }
+
   if (loading) {
     return <h1>Fly, you fools!</h1>;
   } else {
     return (
       <div>
         {books.docs.map (book => {
-            console.log(book)
+            // console.log(book)
           return (
-            <div>
-            <Link to={`/book/${book._id}/chapter`} key={book.name}>
-              <li>{book.name}</li>
-            </Link> 
-            
-              <Route exact path={`/book/${book._id}/chapter`}
-              render={(routerProps) => <Chapters book = {book} setBooks= {setBooks} match = {routerProps.match}
-              bookId = {book._id}/>}
-              />
+            <div id={book._id}>
+              <Link to={`/book/${book._id}`} key={book.name}>
+                {book.name}
+              </Link>
              
-              </div> 
+            </div> 
           );
         })}
 
