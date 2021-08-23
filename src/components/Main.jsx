@@ -1,29 +1,29 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
+import {Link, Route} from 'react-router-dom';
+import Character from './Character';
+import CharacterInfo from './CharacterInfo';
+import Book from './Book';
+function Main (props) {
+  return (
+    <div>
+      <Route
+      exact path= '/book' 
+      component ={Book}/>
+{/* 
+      
+      <Route
+        exact
+        path="/book/:id"
+        render={routerProps => <Character match={routerProps.match} />}
+      /> */}
+      <Route
+        exact
+        path="/book/character/:id"
+        render={routerProps => <CharacterInfo match={routerProps.match} />}
+      />
 
-function Main ({characters, loading}) {
-  
-    if(loading){
-        return <h1>loading</h1>
-    } else {
-        console.log(characters)
-        console.log('LOOKHERE', characters.id)
-  
-        return (
-          <div>
-           {characters.docs.map(character => {
-              return(
-                <Link to = {`/book/${character.name}`} key= {character.name}>
-                <li>{character.name}</li>
-                  </Link>
-              );
-            })
-            }
-         
-          </div>
-        );
-    }
-   
+    </div>
+  );
 }
 
 export default Main;
